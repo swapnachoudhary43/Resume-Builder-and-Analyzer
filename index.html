@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Creator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-gray-100">
+
+<header id="header" class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-6 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-bold">Resume Creator</h1>
+        <nav>
+            <a href="#hero" class="text-white hover:underline">Home</a>
+            <a href="#about" class="ml-4 text-white hover:underline">About</a>
+            <a href="#support" class="ml-4 text-white hover:underline">Support</a>
+            <a href="#resume-creator" class="ml-4 text-white hover:underline">Create Resume</a>
+        </nav>
+    </div>
+</header>
+
+<section id="hero" class="bg-gradient-to-r from-blue-900 to-blue-700 text-white text-center py-20">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-bold mb-4 hero-item">Create Stunning Resumes</h2>
+        <p class="text-xl hero-item">Easily build and download professional resumes.</p>
+        <a href="#resume-creator" class="mt-6 hero-button bg-yellow-400 hover:bg-yellow-300 text-blue-900 px-6 py-3 rounded">Get Started</a>
+    </div>
+</section>
+
+<section id="resume-creator" class="py-16 bg-gray-100">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-6">Create Your Resume</h2>
+        <form id="resume-form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-group">
+                    <label for="name" class="block text-lg font-medium">Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="email" class="block text-lg font-medium">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="block text-lg font-medium">Phone</label>
+                    <input type="text" id="phone" class="form-control" placeholder="Your Phone Number">
+                </div>
+                <div class="form-group">
+                    <label for="school" class="block text-lg font-medium">School/University</label>
+                    <input type="text" id="school" class="form-control" placeholder="Your School/University">
+                </div>
+                <div class="form-group">
+                    <label for="degree" class="block text-lg font-medium">Degree</label>
+                    <input type="text" id="degree" class="form-control" placeholder="Your Degree">
+                </div>
+                <div class="form-group">
+                    <label for="graduation" class="block text-lg font-medium">Year of Graduation</label>
+                    <input type="text" id="graduation" class="form-control" placeholder="Year of Graduation">
+                </div>
+                <div class="form-group">
+                    <label for="company" class="block text-lg font-medium">Company</label>
+                    <input type="text" id="company" class="form-control" placeholder="Company Name">
+                </div>
+                <div class="form-group">
+                    <label for="position" class="block text-lg font-medium">Position</label>
+                    <input type="text" id="position" class="form-control" placeholder="Your Position">
+                </div>
+                <div class="form-group">
+                    <label for="duration" class="block text-lg font-medium">Duration</label>
+                    <input type="text" id="duration" class="form-control" placeholder="Duration">
+                </div>
+                <div class="form-group">
+                    <label for="skills" class="block text-lg font-medium">Skills</label>
+                    <input type="text" id="skills" class="form-control" placeholder="Your Skills">
+                </div>
+                <!-- New Section for Projects -->
+                <div class="form-group">
+                    <label for="projects" class="block text-lg font-medium">Project(s)</label>
+                    <textarea id="projects" class="form-control" placeholder="Describe your project(s) here"></textarea>
+                </div>
+                <!-- Skill Rating Section -->
+                <div class="form-group">
+                    <label for="skill-rating" class="block text-lg font-medium">Rate Your Skills</label>
+                    <input type="range" id="skill-rating" class="form-control" min="1" max="10">
+                </div>
+            </div>
+            <!-- Buttons -->
+            <div class="flex justify-between mt-6">
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded">Generate Resume</button>
+                <button type="reset" id="refresh" class="bg-red-600 text-white px-6 py-3 rounded">Refresh</button>
+                <button id="download-pdf" class="bg-green-600 text-white px-6 py-3 rounded">Download as PDF</button>
+            </div>
+        </form>
+        <div id="resume-output" class="mt-6"></div>
+    </div>
+</section>
+
+<footer class="bg-gradient-to-r from-blue-700 to-teal-500 text-white py-10">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Footer Column 1: About Us -->
+        <div class="footer-col">
+            <h4 class="text-xl font-bold mb-4">About Resume Creator</h4>
+            <p>
+                Resume Creator helps you build professional resumes in minutes. Our user-friendly platform is designed for quick and efficient resume creation to help you stand out to potential employers.
+            </p>
+        </div>
+
+        <!-- Footer Column 2: Quick Links -->
+        <div class="footer-col">
+            <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+            <ul>
+                <li><a href="#hero" class="hover:underline">Home</a></li>
+                <li><a href="#about" class="hover:underline">About Us</a></li>
+                <li><a href="#resume-creator" class="hover:underline">Create Resume</a></li>
+                <li><a href="#support" class="hover:underline">Support</a></li>
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <!-- Footer Column 3: Contact Us -->
+        <div class="footer-col">
+            <h4 class="text-xl font-bold mb-4">Contact Us</h4>
+            <p>Email: <a href="mailto:support@example.com" class="hover:underline">support@example.com</a></p>
+            <p>Phone: +1 123 456 7890</p>
+        </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="container mx-auto mt-8 border-t border-gray-400 pt-4 text-center">
+        <p>&copy; 2024 Resume Creator. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/ScrollTrigger.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
