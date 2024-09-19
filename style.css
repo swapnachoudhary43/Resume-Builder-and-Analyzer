@@ -1,0 +1,70 @@
+/* styles.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+}
+
+header, footer {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-button {
+    background-color: #fbbf24;
+    color: #1d4ed8;
+    border-radius: 0.375rem;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-button:hover {
+    background-color: #facc15;
+}
+
+#resume-output {
+    border: 2px solid #ddd;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+    background: linear-gradient(to bottom right, #e2e8f0, #f8fafc);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#resume-output h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#resume-output p {
+    font-size: 1.125rem;
+    color: #555;
+}
+
+form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    border: 1px solid #ddd;
+}
+
+button {
+    font-size: 1rem;
+}
+
+.bg-3d {
+    perspective: 1000px;
+}
+
+.bg-3d .inner {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease;
+}
+
+.bg-3d:hover .inner {
+    transform: rotateY(15deg) rotateX(15deg);
+}
